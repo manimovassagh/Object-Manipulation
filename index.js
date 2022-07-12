@@ -12,3 +12,45 @@ console.log(m);
 
 const n = _.reduce(arrObj, (r, c) => Object.assign(r, c), {})
 console.log(n);
+
+
+const initialObject = {
+  status: 'success',
+  fields: [
+      {
+          name: 'price',
+          value: 12,
+      },
+      {
+          name: 'remain',
+          value: 45,
+      },
+  ],
+};
+
+function getFields(initialObject){
+  const resultMapper = {
+    ...initialObject,
+    fields: initialObject.fields.map(({ name, value }) => ({ [name]: value })),
+  };
+  const resultMerge ={
+    ...resultMapper,
+    fields:_.reduce(resultMapper.fields, (r, c) => Object.assign(r, c), {})
+  }
+  return resultMerge;
+}
+
+console.log(getFields(initialObject));
+
+// const result = {
+//   ...initialObject,
+//   fields: initialObject.fields.map(({ name, value }) => ({ [name]: value })),
+// };
+
+// const result2={
+//   ...result,
+//   fields:_.reduce(result.fields, (r, c) => Object.assign(r, c), {})
+// }
+
+// console.log(result);
+// console.log(result2);
