@@ -28,6 +28,20 @@ const initialObject = {
   ],
 };
 
+const initialObject2 = {
+  status: 'success',
+  fields: [
+      {
+          name: 'Fremde',
+          value: 12,
+      },
+      {
+          name: 'WV',
+          value: 45,
+      },
+  ],
+};
+
 function getFields(initialObject){
   const resultMapper = {
     ...initialObject,
@@ -41,6 +55,7 @@ function getFields(initialObject){
 }
 
 console.log(getFields(initialObject));
+console.log(getFields(initialObject2));
 
 // const result = {
 //   ...initialObject,
